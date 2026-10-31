@@ -17,7 +17,7 @@ Primary calls to action open dedicated pages rather than scrolling the homepage.
 - Removed duplicate meta descriptions from the Treats and Our Story pages.
 - Added a custom cake enquiry form with required fields, URL cake preselection, message draft generation and copy support.
 - The enquiry form is browser-only: it does not send or store personal information. Customers must manually copy and send the prepared draft.
-- Checked page files for required HTML structure, titles, descriptions, navigation and form markup through GitHub Actions.
+- GitHub Actions runs a dependency-free Python audit for broken local links, missing fragment targets, duplicate IDs, missing image alt attributes, and page title/description metadata.
 
 - Added `sitemap.xml` and `robots.txt` so search engines can discover the public pages.
 - Added a branded `404.html` page for missing URLs.
