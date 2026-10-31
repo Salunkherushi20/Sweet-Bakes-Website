@@ -80,6 +80,8 @@ for name, parser in parsed.items():
         except ValueError:
             errors.append(f"{name}: link escapes site root: {href}")
             continue
+        if target.is_dir():
+            target = target / "index.html"
         if not target.is_file():
             errors.append(f"{name}: broken local link: {href}")
             continue
