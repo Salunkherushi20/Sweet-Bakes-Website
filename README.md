@@ -13,6 +13,7 @@ Primary calls to action open dedicated pages rather than scrolling the homepage.
 ## Audit and repairs
 - Added shared JavaScript for mobile navigation and automatic footer year.
 - Added accessible expanded-state labels to the mobile menu.
+- Added visible keyboard-focus outlines, Escape-key menu dismissal, and bounded mobile-menu scrolling.
 - Removed duplicate meta descriptions from the Treats and Our Story pages.
 - Added a custom cake enquiry form with required fields, URL cake preselection, message draft generation and copy support.
 - The enquiry form is browser-only: it does not send or store personal information. Customers must manually copy and send the prepared draft.
