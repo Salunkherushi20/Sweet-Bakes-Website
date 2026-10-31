@@ -1,26 +1,31 @@
 # Sweet Bakes Website
 
-A responsive, multi-page bakery website for cakes, pastries, cupcakes and custom celebration cake enquiries.
+A responsive static bakery website for cake inspiration and custom cake enquiries.
 
 ## Pages
 - `index.html` — Home
 - `treats.html` — Cake categories and product inspiration
-- `custom-cake.html` — Custom cake enquiry form
+- `custom-cake.html` — Custom cake enquiry draft form
 - `our-story.html` — About Sweet Bakes
 
-Primary calls to action navigate to dedicated pages instead of scrolling to sections on the homepage. Each page has its own title and description for search engines.
+Primary calls to action open dedicated pages rather than scrolling the homepage. Each page has its own SEO title and meta description. Relative links are used for GitHub Pages project hosting.
+
+## Audit and repairs
+- Added shared JavaScript for mobile navigation and automatic footer year.
+- Added accessible expanded-state labels to the mobile menu.
+- Removed duplicate meta descriptions from the Treats and Our Story pages.
+- Added a custom cake enquiry form with required fields, URL cake preselection, message draft generation and copy support.
+- The enquiry form is browser-only: it does not send or store personal information. Customers must manually copy and send the prepared draft.
+- Checked page files for required HTML structure, titles, descriptions, navigation and form markup through GitHub Actions.
 
 ## Run locally
-Open `index.html` in a browser. No build step or dependencies are required. Keep the HTML files in the same folder so relative navigation works on GitHub Pages.
+Open `index.html` in a browser. Keep the four HTML files in the same directory. External Unsplash photography needs an internet connection.
 
 ## Publish with GitHub Pages
-1. Open this repository's **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select branch `main` and folder `/ (root)`, then Save.
-4. Wait for GitHub Pages to publish. The expected site URL is `https://salunkherushi20.github.io/Sweet-Bakes-Website/` once deployment succeeds.
+Repository **Settings → Pages → Deploy from a branch → main → /(root) → Save**. The site URL is `https://salunkherushi20.github.io/Sweet-Bakes-Website/`.
 
-## Important launch notes
-- The custom enquiry form currently runs only in the browser and prepares copyable text. It does **not** send, store or transmit enquiries. Connect it to a real, secure endpoint before accepting orders.
-- No business phone, email, address or verified prices are included. Add verified business details before launch.
-- Product photography is loaded from Unsplash URLs and requires internet access.
-- This repository is a static frontend; do not put private keys, passwords or customer data in the source.
+## Before business launch
+- Add only verified business contact details, actual pricing, and availability.
+- Connect enquiries to a secure, tested delivery method before promising that messages are submitted.
+- Product images load from Unsplash. Confirm the selected image licensing and replace images if required.
+- Do not add passwords, private keys, or customer data to this public repository.
