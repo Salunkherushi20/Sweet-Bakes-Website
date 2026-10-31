@@ -34,4 +34,16 @@
 </main>
 <footer class="wrap footer"><div class="footer-top"><div><a class="brand" href="index.html">sweet<span>bakes.</span></a><p>A little sweetness for life's big and small moments. Cake first, everything else later.</p></div><div class="footer-links"><a href="treats.html">Our treats</a><a href="our-story.html">Our story</a><a href="custom-cake.html">Custom enquiry</a></div></div><div class="copyright"><span>© <span id="year"></span> Sweet Bakes. Made with a little extra love.</span><span>Prices and availability confirmed during enquiry.</span></div></footer>
 
-</body></html>
+<script>
+(function(){
+ const menu=document.getElementById('menuToggle');
+ const nav=document.getElementById('navlinks');
+ if(menu&&nav){menu.addEventListener('click',function(){const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');});nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation menu');});});}
+ const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
+ const form=document.getElementById('enquiryForm');
+ if(form){const params=new URLSearchParams(location.search);const cake=params.get('cake');const select=document.getElementById('cakeSelect');if(cake&&select){for(const option of select.options){if(option.text===cake){select.value=cake;break;}}}
+ let draft='';form.addEventListener('submit',function(e){e.preventDefault();const d=new FormData(form);draft='Sweet Bakes — Custom Cake Enquiry\nName: '+d.get('name')+'\nContact: '+d.get('contact')+'\nCake: '+d.get('cake')+'\nServings: '+(d.get('servings')||'Not sure yet')+'\nDate: '+(d.get('date')||'Not specified')+'\nOccasion: '+(d.get('occasion')||'Not specified')+'\nIdeas: '+(d.get('details')||'Not specified');const box=document.getElementById('enquiryDraft');box.value=draft;box.style.display='block';document.getElementById('formStatus').textContent='Enquiry draft prepared. Copy it and send it manually; this site does not transmit it.';});
+ const copy=document.getElementById('copyEnquiry');if(copy)copy.addEventListener('click',async function(){const box=document.getElementById('enquiryDraft');if(!box.value){document.getElementById('formStatus').textContent='Fill in the required fields and choose “Prepare enquiry message” first.';return;}try{await navigator.clipboard.writeText(box.value);document.getElementById('formStatus').textContent='Message copied. You can now paste it into your chosen messaging app.';}catch(err){box.focus();box.select();document.getElementById('formStatus').textContent='Select and copy the prepared message manually.';}});
+ }
+})();
+</script></body></html>
