@@ -30,6 +30,8 @@ jobs:
             grep -q 'id="menuToggle"' "$file"
             grep -q 'id="navlinks"' "$file"
             grep -q 'addEventListener' "$file"
+            grep -q ':focus-visible' "$file"
+            grep -q "e.key==='Escape'" "$file"
           done
           grep -q 'id="enquiryForm"' custom-cake.html
           grep -q 'id="enquiryDraft"' custom-cake.html
