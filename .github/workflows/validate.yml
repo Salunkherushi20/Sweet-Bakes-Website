@@ -16,19 +16,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Check required website pages
+      - name: Validate all pages and interactions
+        shell: bash
         run: |
-          set -eu
+          set -euo pipefail
           for file in index.html treats.html custom-cake.html our-story.html README.md; do
             test -s "$file"
           done
           for file in index.html treats.html custom-cake.html our-story.html; do
             grep -qi '<!doctype html>' "$file"
             grep -q '<title>' "$file"
-            grep -q 'name="description"' "$file"
+            test "$(grep -o 'name="description"' "$file" | wc -l)" -eq 1
             grep -q 'id="menuToggle"' "$file"
+            grep -q 'id="navlinks"' "$file"
+            grep -q 'addEventListener' "$file"
           done
-          grep -q '<form' custom-cake.html
+          grep -q 'id="enquiryForm"' custom-cake.html
+          grep -q 'id="enquiryDraft"' custom-cake.html
           grep -q 'href="treats.html"' index.html
           grep -q 'href="custom-cake.html"' index.html
-          echo "All multi-page website files, SEO metadata, navigation, and enquiry form found."
+          grep -q 'href="our-story.html"' index.html
+          echo "All pages, SEO metadata, mobile navigation, and custom enquiry draft checks passed."
