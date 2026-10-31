@@ -1,0 +1,26 @@
+name: Validate static website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check required website files
+        run: |
+          test -s index.html
+          test -s README.md
+          grep -q '<!doctype html>' index.html
+          grep -q 'id="enquiryForm"' index.html
+          grep -q 'id="menuToggle"' index.html
+          echo "Required static website files and core elements found."
