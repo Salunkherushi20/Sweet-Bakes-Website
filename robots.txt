@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://salunkherushi20.github.io/Sweet-Bakes-Website/sitemap.xml
