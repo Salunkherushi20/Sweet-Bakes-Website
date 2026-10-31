@@ -19,6 +19,9 @@ Primary calls to action open dedicated pages rather than scrolling the homepage.
 - The enquiry form is browser-only: it does not send or store personal information. Customers must manually copy and send the prepared draft.
 - Checked page files for required HTML structure, titles, descriptions, navigation and form markup through GitHub Actions.
 
+- Added `sitemap.xml` and `robots.txt` so search engines can discover the public pages.
+- Added a branded `404.html` page for missing URLs.
+
 ## Run locally
 Open `index.html` in a browser. Keep the four HTML files in the same directory. External Unsplash photography needs an internet connection.
 
